@@ -61,7 +61,7 @@ module.exports = {
         if(user!=null){
           console.log('masuk');
            if (user.password==crypto.createHmac('sha256', user.salt).update(req.body.password).digest('hex')) {
-             let token = jwt.sign({cek:true}, 'shhhhh');
+             let token = jwt.sign({user:user}, 'shhhhh');
               res.send(token);
            }
         }else{
